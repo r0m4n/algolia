@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="searchApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cool places to eat!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="container" ng-controller="searchController">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div id="search-area" class="col-xs-12">
+                        <form>
+                            <input type="text" class="form-control input-lg" id="search-input" placeholder="Search for Restaurants by Name, Cuisine, Location" data-ng-model="q" autocomplete="off">
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="content-area" class="col-md-12" data-ng-cloak>
+                        <div class="row">
+                            <div id="filter-area" class="col-md-4">
+                                <h2>Cuisine/Food Type</h2>
+                                <ul class="stacked-filter-list">
+                                    <li ng-class="" ng-repeat="option in foodType">
+                                        <a href data-ng-class="helper.isRefined('food_type', option.name) ? 'refined': ''" ng-click="toggleRefine($event, 'food_type', option.name)">{{option.name}}<span class="filter-badge">{{option.count}}</span></a>
+                                    </li>
+                                </ul>
+                                <h2>Rating</h2>
+                                <div class="stacked-filter-list">
+                                    <div class="star-list">
+                                        <div>
+                                            <span class="unfilled-stars-0-0"></span>
+                                        </div>
+                                        <div>
+                                            <span class="filled-stars-1-0"></span>
+                                            <span class="unfilled-stars-1-0"></span>
+                                        </div>
+                                        <div>
+                                            <span class="filled-stars-2-0"></span>
+                                            <span class="unfilled-stars-2-0"></span>
+                                        </div>
+                                        <div>
+                                            <span class="filled-stars-3-0"></span>
+                                            <span class="unfilled-stars-3-0"></span>
+                                        </div>
+                                        <div>
+                                            <span class="filled-stars-4-0"></span>
+                                            <span class="unfilled-stars-4-0"></span>
+                                        </div>
+                                        <div>
+                                            <span class="filled-stars-5-0"></span>
+                                            <span class="unfilled-stars-5-0"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div id="stars"></div>-->
+                                <h2>Payment Options</h2>
+                                <ul class="stacked-filter-list">
+                                    <li ng-repeat="option in paymentOptions">
+                                        <a href data-ng-class="helper.isRefined('payment_options', option.name) ? 'refined': ''" ng-click="toggleRefine($event, 'payment_options', option.name)">{{option.name}}<span class="filter-badge">{{option.count}}</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="results-area" class="col-md-8">
+                                <div id="stats">
+                                    <div class="col-md-6">
+                                        {{hits}} results found<span id="stats-time"> in {{processTime}} seconds</span>
+                                    </div>
+                                    <div class="col-md-6" id="stats-line"></div>
+                                </div>
+                                <div id="hits">
+                                    <div class="hit-item" ng-repeat="hit in content.hits">
+                                        <img data-ng-src="{{hit.image_url}}" class="img-rounded hit-image" alt="{{hit.name}}" width="100">
+                                        <h3 class="hit-name">{{hit.name}}</h3>
+                                        <h4 class="hit-rating">
+                                            <span class="star-count">{{hit.stars_count}}</span> <span class="filled-stars-{{hit.starClass}}"></span><span class="unfilled-stars-{{hit.starClass}}"></span> ({{hit.reviews_count}} reviews)
+                                        </h4>
+                                        <h4 class="hit-type">{{hit.food_type}} | {{hit.neighborhood}} | {{hit.price_range}}</h4>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p class="text-center">
+                                    <button data-ng-show="pages > page" id="show-more" type="button" class="btn btn-default" data-ng-click="showMore()">Show More</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-sanitize.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

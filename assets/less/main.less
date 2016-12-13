@@ -1,0 +1,236 @@
+@gray-text: #9a9a9a;
+@gray-border: #e6e6e6;
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: url('../img/background.png');
+    #search-area {
+        background-color: #1c688e;
+        margin-top: 50px;
+        padding: 30px;
+    }
+    #content-area {
+        background-color: white;
+        margin-bottom: 50px;
+        -webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.26);
+        -moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.26);
+        box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.26);
+
+        #results-area,
+        #filter-area {
+            h2{
+                font-size: 1.2em;
+                font-weight: 400
+            }
+            padding: 20px 30px;
+
+        }
+        #filter-area {
+            .stacked-filter-list {
+                padding-left: 5px;
+                li {
+                    list-style: none;
+                    margin: 0px;
+                    border-radius: 5px;
+
+                    .filter-badge {
+                        float:right;
+                        color: @gray-text;
+                    }
+
+                    a {
+                        display: block;
+                        text-decoration: none;
+                        color: black;
+                        padding: 3px 20px 3px 15px;
+                        font-weight: 100;
+                        border-radius: 5px;
+                    }
+
+                    a:hover, a.refined {
+                        .active-menuitem;
+                    }
+                }
+
+                /* active menu item styles */
+                .active-menuitem{
+                    background-color:#2897c5;
+                    color:white;
+                    .filter-badge {
+                        color: white;
+                    }
+                }
+            }
+            .star-list{
+                margin-left: 12px;
+            }
+        }
+        #results-area {
+            border-left: 1px solid @gray-border;
+            padding-top: 40px;
+            #stats{
+                font-size: 1.3em;
+                font-weight: 500;
+                #stats-time{
+                    font-weight: 200;
+                    font-size: 1em;
+                }
+                #stats-line{
+                    border-bottom: 1px solid @gray-border;
+                    padding-top:20px;
+                }
+            }
+
+            #hits {
+                margin-top: 10px;
+                .hit-item{
+                    clear: both;
+                    padding-top:20px;
+                    .hit-image{
+                        float:left;
+                        margin-right: 20px;
+                    }
+                    h3 {
+                        margin: 0px;
+                        font-size: 1.5em;
+                    }
+                    h4 {
+                        color: #9a9a9a;
+                        font-size: 1.2em;
+                        font-weight: 200;
+                        margin: 7px 0px;
+                    }
+                    .star-count{
+                        color: #ffab66
+                    }
+                }
+            }
+            #show-more{
+                margin-top: 30px;
+            }
+        }
+    }
+
+    /* rating stars */
+    .filled-stars-0-0{
+        width: 0px;
+        background-position: 0px -88px;
+        .general-stars;
+    }
+    .unfilled-stars-0-0{
+        background-position: 0px 0px;
+        width: 92px;
+        .general-stars;
+    }
+    .filled-stars-0-5{
+        background-position: 0px -88px;
+        width: 8px;
+        .general-stars;
+    }
+    .unfilled-stars-0-5{
+        background-position: -8px 0px;
+        width: 83px;
+        .general-stars;
+    }
+    .filled-stars-1-0{
+        background-position: 0px -88px;
+        width: 16px;
+        .general-stars;
+    }
+    .unfilled-stars-1-0{
+        background-position: 0px 0px;
+        width: 76px;
+        .general-stars;
+    }
+    .filled-stars-1-5{
+        background-position: 0px -88px;
+        width: 27px;
+        .general-stars;
+    }
+    .unfilled-stars1-5{
+        background-position: -8px 0px;
+        width: 67px;
+        .general-stars;
+    }
+    .filled-stars-2-0{
+        background-position: 0px -88px;
+        width: 37px;
+        .general-stars;
+    }
+    .unfilled-stars-2-0{
+        background-position: 0px 0px;
+        width: 57px;
+        .general-stars;
+    }
+    .filled-stars-2-5{
+        background-position: 0px -88px;
+        width: 46px;
+        .general-stars;
+    }
+    .unfilled-stars-2-5{
+        background-position: -27px 0px;
+        width: 49px;
+        .general-stars;
+    }
+    .filled-stars-3-0{
+        background-position: 0px -88px;
+        width: 55px;
+        .general-stars;
+    }
+    .unfilled-stars-3-0{
+        background-position: -17px 0px;
+        width: 40px;
+        .general-stars;
+    }
+    .filled-stars-3-5{
+        background-position: 0px -88px;
+        width: 65px;
+        .general-stars;
+    }
+    .unfilled-stars-3-5{
+        background-position: -8px 0px;
+        width: 30px;
+        .general-stars;
+    }
+    .filled-stars-4-0{
+        background-position: 0px -88px;
+        width: 75px;
+        .general-stars;
+    }
+    .unfilled-stars-4-0{
+        background-position: 0px 0px;
+        width: 18px;
+        .general-stars;
+    }
+    .filled-stars-4-5{
+        background-position: 0px -88px;
+        width: 84px;
+        .general-stars;
+    }
+    .unfilled-stars-4-5{
+        background-position: -8px 0px;
+        width: 9px;
+        .general-stars;
+    }
+    .filled-stars-5-0{
+        background-position: 0px -88px;
+        width: 92px;
+        .general-stars;
+    }
+    .unfilled-stars-5-0{
+        background-position: 0px 0px;
+        width: 0px;
+        .general-stars;
+    }
+    .general-stars{
+        background-image: url('../img/stars-icons.png');
+        background-size: 92px 35px;
+        height: 17px;
+        display: inline-block;
+        vertical-align: top;
+    }
+}

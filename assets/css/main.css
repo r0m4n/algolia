@@ -1,0 +1,323 @@
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: url('../img/background.png');
+  /* rating stars */
+}
+body #search-area {
+  background-color: #1c688e;
+  margin-top: 50px;
+  padding: 30px;
+}
+body #content-area {
+  background-color: white;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.26);
+  box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.26);
+}
+body #content-area #results-area,
+body #content-area #filter-area {
+  padding: 20px 30px;
+}
+body #content-area #results-area h2,
+body #content-area #filter-area h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+body #content-area #filter-area .stacked-filter-list {
+  padding-left: 5px;
+  /* active menu item styles */
+}
+body #content-area #filter-area .stacked-filter-list li {
+  list-style: none;
+  margin: 0px;
+  border-radius: 5px;
+}
+body #content-area #filter-area .stacked-filter-list li .filter-badge {
+  float: right;
+  color: #9a9a9a;
+}
+body #content-area #filter-area .stacked-filter-list li a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 3px 20px 3px 15px;
+  font-weight: 100;
+  border-radius: 5px;
+}
+body #content-area #filter-area .stacked-filter-list li a:hover,
+body #content-area #filter-area .stacked-filter-list li a.refined {
+  background-color: #2897c5;
+  color: white;
+}
+body #content-area #filter-area .stacked-filter-list li a:hover .filter-badge,
+body #content-area #filter-area .stacked-filter-list li a.refined .filter-badge {
+  color: white;
+}
+body #content-area #filter-area .stacked-filter-list .active-menuitem {
+  background-color: #2897c5;
+  color: white;
+}
+body #content-area #filter-area .stacked-filter-list .active-menuitem .filter-badge {
+  color: white;
+}
+body #content-area #filter-area .star-list {
+  margin-left: 12px;
+}
+body #content-area #results-area {
+  border-left: 1px solid #e6e6e6;
+  padding-top: 40px;
+}
+body #content-area #results-area #stats {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+body #content-area #results-area #stats #stats-time {
+  font-weight: 200;
+  font-size: 1em;
+}
+body #content-area #results-area #stats #stats-line {
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: 20px;
+}
+body #content-area #results-area #hits {
+  margin-top: 10px;
+}
+body #content-area #results-area #hits .hit-item {
+  clear: both;
+  padding-top: 20px;
+}
+body #content-area #results-area #hits .hit-item .hit-image {
+  float: left;
+  margin-right: 20px;
+}
+body #content-area #results-area #hits .hit-item h3 {
+  margin: 0px;
+  font-size: 1.5em;
+}
+body #content-area #results-area #hits .hit-item h4 {
+  color: #9a9a9a;
+  font-size: 1.2em;
+  font-weight: 200;
+  margin: 7px 0px;
+}
+body #content-area #results-area #hits .hit-item .star-count {
+  color: #ffab66;
+}
+body #content-area #results-area #show-more {
+  margin-top: 30px;
+}
+body .filled-stars-0-0 {
+  width: 0px;
+  background-position: 0px -88px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-0-0 {
+  background-position: 0px 0px;
+  width: 92px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-0-5 {
+  background-position: 0px -88px;
+  width: 8px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-0-5 {
+  background-position: -8px 0px;
+  width: 83px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-1-0 {
+  background-position: 0px -88px;
+  width: 16px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-1-0 {
+  background-position: 0px 0px;
+  width: 76px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-1-5 {
+  background-position: 0px -88px;
+  width: 27px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars1-5 {
+  background-position: -8px 0px;
+  width: 67px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-2-0 {
+  background-position: 0px -88px;
+  width: 37px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-2-0 {
+  background-position: 0px 0px;
+  width: 57px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-2-5 {
+  background-position: 0px -88px;
+  width: 46px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-2-5 {
+  background-position: -27px 0px;
+  width: 49px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-3-0 {
+  background-position: 0px -88px;
+  width: 55px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-3-0 {
+  background-position: -17px 0px;
+  width: 40px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-3-5 {
+  background-position: 0px -88px;
+  width: 65px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-3-5 {
+  background-position: -8px 0px;
+  width: 30px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-4-0 {
+  background-position: 0px -88px;
+  width: 75px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-4-0 {
+  background-position: 0px 0px;
+  width: 18px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-4-5 {
+  background-position: 0px -88px;
+  width: 84px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-4-5 {
+  background-position: -8px 0px;
+  width: 9px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .filled-stars-5-0 {
+  background-position: 0px -88px;
+  width: 92px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .unfilled-stars-5-0 {
+  background-position: 0px 0px;
+  width: 0px;
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+body .general-stars {
+  background-image: url('../img/stars-icons.png');
+  background-size: 92px 35px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: top;
+}
+/*# sourceMappingURL=main.css.map */
