@@ -34,33 +34,13 @@
                                     </li>
                                 </ul>
                                 <h2>Rating</h2>
-                                <div class="stacked-filter-list">
-                                    <div class="star-list">
-                                        <div>
-                                            <span class="unfilled-stars-0-0"></span>
-                                        </div>
-                                        <div>
-                                            <span class="filled-stars-1-0"></span>
-                                            <span class="unfilled-stars-1-0"></span>
-                                        </div>
-                                        <div>
-                                            <span class="filled-stars-2-0"></span>
-                                            <span class="unfilled-stars-2-0"></span>
-                                        </div>
-                                        <div>
-                                            <span class="filled-stars-3-0"></span>
-                                            <span class="unfilled-stars-3-0"></span>
-                                        </div>
-                                        <div>
-                                            <span class="filled-stars-4-0"></span>
-                                            <span class="unfilled-stars-4-0"></span>
-                                        </div>
-                                        <div>
-                                            <span class="filled-stars-5-0"></span>
-                                            <span class="unfilled-stars-5-0"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ul class="stacked-filter-list star-list">
+                                    <li ng-class="" ng-repeat="option in SearchController.starsRoundedWhole">
+                                        <a href data-ng-class="SearchController.helper.isRefined('stars_rounded_whole', option.name) ? 'refined': ''" ng-click="SearchController.toggleDisRefine($event, 'stars_rounded_whole', option.name)">
+                                            <span class="selected-star"><span class="filled-stars-{{option.name}}-0"></span><span class="unfilled-stars-{{option.name}}-0"></span></span>
+                                        </a>
+                                    </li>
+                                </ul>
                                 <!--<div id="stars"></div>-->
                                 <h2>Payment Options</h2>
                                 <ul class="stacked-filter-list">

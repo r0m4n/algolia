@@ -7,11 +7,15 @@ angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
     vm.q = '';
     vm.content = null;
     vm.toggleRefine = toggleRefine;
+    vm.toggleDisRefine = toggleDisRefine;
     vm.showMore = showMore;
+    vm.paymentOptions;
+    vm.foodType;
+    vm.starsRoundedWhole = [{name: 0},{name: 1},{name: 2},{name: 3},{name: 4},{name: 5}];
 
     vm.helper = algoliasearchHelper(algolia, 'rest_search', {
         facets: ['food_type','payment_options'],
-        disjunctiveFacets: ['stars_count'],
+        disjunctiveFacets: ['stars_rounded_whole'],
         hitsPerPage: hitsPerPage,
         maxValuesPerFacet: 7,
         getRankingInfo: true,
@@ -21,15 +25,18 @@ angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
             latLngParam = position.coords.latitude + ',' + position.coords.longitude;
-            vm.helper.search();
+            vm.helper.setQueryParameter('aroundLatLng', latLngParam).search();
         });
     } else {
-        //geolocation IS NOT available
+        //geolocation IS NOT available do nothing
     }
 
     vm.helper.on('result', function(content) {
-        vm.paymentOptions = content.getFacetValues('payment_options');
-        vm.foodType = content.getFacetValues('food_type');
+        if(!vm.paymentOptions)
+            vm.paymentOptions = content.getFacetValues('payment_options');
+        if(!vm.foodType)
+            vm.foodType = content.getFacetValues('food_type');
+        //vm.starsRoundedWhole = content.getFacetValues('stars_rounded_whole', {sortBy: ['name:asc']});
         vm.processTime = (content.processingTimeMS / 1000) % 60;
         vm.hits = content.nbHits;
         vm.pages = content.nbPages;
@@ -49,9 +56,19 @@ angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
         vm.helper.setQuery(q).search();
     });
 
-    vm.helper.search();
+    // run an initial search based upon IP
+    vm.helper.setQueryParameter('aroundLatLngViaIP', true).search();
 
     function toggleRefine ($event, facet, value) {
+        $event.preventDefault();
+        var currentFacet = vm.helper.getRefinements(facet);
+
+        if(currentFacet[0] && currentFacet[0].value != value){
+            vm.helper.clearRefinements(facet);
+        }
+        vm.helper.toggleRefine(facet, value).search();
+    }
+    function toggleDisRefine ($event, facet, value) {
         $event.preventDefault();
         vm.helper.toggleRefine(facet, value).search();
     }

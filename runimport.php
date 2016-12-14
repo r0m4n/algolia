@@ -2,7 +2,7 @@
 // initialize API Client & Index
 include('algoliasearch-client-php-master/algoliasearch.php');
 $client = new \AlgoliaSearch\Client("BVC5SUAF7Y", "fef3f3ffdeb548da18aba98395cf3533");
-$index = $client->initIndex('instant_search');
+$index = $client->initIndex('rest_search');
 $csv = array_map('str_getcsv', file('restaurants_info.csv'));
 
 if ($csv){
@@ -17,6 +17,7 @@ if ($csv){
         $new_row['objectID'] = $row[0];
         $new_row['food_type'] = $row[1];
         $new_row['stars_count'] = $row[2];
+        $new_row['stars_rounded_whole'] = round($row[2]);
         $new_row['reviews_count'] = $row[3];
         $new_row['neighborhood'] = $row[4];
         $new_row['phone2'] = $row[5];

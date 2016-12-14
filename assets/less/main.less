@@ -6,6 +6,7 @@
 }
 
 body {
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
     background: url('../img/background.png');
     #search-area {
@@ -32,6 +33,12 @@ body {
         #filter-area {
             .stacked-filter-list {
                 padding-left: 5px;
+                &.star-list li a{
+                    display: inline;
+                    padding-left: 5px;
+                    padding-right: 2px;
+                    padding-bottom: 0px;
+                }
                 li {
                     list-style: none;
                     margin: 0px;
@@ -72,6 +79,7 @@ body {
         #results-area {
             border-left: 1px solid @gray-border;
             padding-top: 40px;
+            min-height: 700px;
             #stats{
                 font-size: 1.3em;
                 font-weight: 500;
@@ -138,7 +146,7 @@ body {
     }
     .filled-stars-1-0{
         background-position: 0px -88px;
-        width: 16px;
+        width: 19px;
         .general-stars;
     }
     .unfilled-stars-1-0{
@@ -198,7 +206,7 @@ body {
     }
     .filled-stars-4-0{
         background-position: 0px -88px;
-        width: 75px;
+        width: 76px;
         .general-stars;
     }
     .unfilled-stars-4-0{
