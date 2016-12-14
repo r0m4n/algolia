@@ -1,6 +1,6 @@
 angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
 .controller('SearchController', ['$scope', '$sce', 'algolia', '$q', function($scope, $sce, algolia, $q) {
-    var algolia = algolia.Client('BVC5SUAF7Y', 'c196706d8976847f9c55b77930e36a92');
+    var algolia = algolia.Client('BVC5SUAF7Y', '3d5444b71f55b27a26ae8075604beb11');
     var hitsPerPage = 3;
     var latLngParam;
     var vm = this;
