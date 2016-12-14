@@ -22,6 +22,7 @@ angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
         aroundLatLng: latLngParam
     });
 
+    // ask for browser location
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
             latLngParam = position.coords.latitude + ',' + position.coords.longitude;
@@ -32,18 +33,28 @@ angular.module('searchApp', ['ngSanitize', 'algoliasearch'])
     }
 
     vm.helper.on('result', function(content) {
-        if(!vm.paymentOptions)
-            vm.paymentOptions = content.getFacetValues('payment_options');
+        if(!vm.paymentOptions){
+            // only include data specified in instructions
+            vm.paymentOptions = content.getFacetValues('payment_options').filter(function(item){
+                return (item.name === 'AMEX' || item.name === 'Visa' || item.name === 'MasterCard' || item.name === 'Discover')
+            });
+        }
         if(!vm.foodType)
             vm.foodType = content.getFacetValues('food_type');
+
+        // we want to show all stars so we defined them static above
         //vm.starsRoundedWhole = content.getFacetValues('stars_rounded_whole', {sortBy: ['name:asc']});
+
+        // convert process time to seconds
         vm.processTime = (content.processingTimeMS / 1000) % 60;
         vm.hits = content.nbHits;
         vm.pages = content.nbPages;
         vm.page = content.page + 1;
 
         content.hits.map(function(item){
+            // determine star for hit results round to .5
             item.starsRounded = Math.round(item.stars_count*2)/2;
+            // determine class to add to star box
             item.starClass = Math.floor(item.starsRounded) + '-' + String(item.starsRounded % 1) * 10;
             return item;
         });
